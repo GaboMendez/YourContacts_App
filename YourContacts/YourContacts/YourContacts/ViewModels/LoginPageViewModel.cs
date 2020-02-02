@@ -35,7 +35,7 @@ namespace YourContacts.ViewModels
                 {
                     if (Username.Equals(MyUserCredential) && Password.Equals(MyPasswordCredential))
                     {
-                        await DialogService.DisplayAlertAsync($"Welcome '{Username}' to YourContact App!", null, "Ok");
+                        await DialogService.DisplayAlertAsync($"Welcome '{Username.ToUpper()}' to \nYourContact App!", null, "Ok");
 
                         await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.Home}", UriKind.Absolute));
 

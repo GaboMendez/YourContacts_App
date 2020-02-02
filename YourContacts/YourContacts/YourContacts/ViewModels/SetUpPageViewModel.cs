@@ -13,7 +13,6 @@ namespace YourContacts.ViewModels
     public class SetUpPageViewModel : ViewModelBase, IInitializeAsync
     {
         //Properties
-        public string Title { get; set; } = "INITIAL SET-UP";
         public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
@@ -24,6 +23,7 @@ namespace YourContacts.ViewModels
         public SetUpPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
             : base(navigationService, pageDialogService)
         {
+            Title = "INITIAL SET-UP";
             SaveCommand = new DelegateCommand(async () =>
             {
                 if (String.IsNullOrEmpty(Username) || String.IsNullOrEmpty(Password) || String.IsNullOrEmpty(ConfirmPassword))
