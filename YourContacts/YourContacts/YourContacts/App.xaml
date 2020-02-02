@@ -7,5 +7,61 @@
 
 		<!-- Application resource dictionary -->
 
-	</Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsFont">
+                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsBoldFont">
+                <On Platform="Android" Value="Poppins-Bold.ttf#Poppins Bold" />
+            </OnPlatform>
+            
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsBlackFont">
+                <On Platform="Android" Value="Poppins-Black.ttf#Poppins Black" />
+            </OnPlatform>
+
+            <!--////-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="JosefinSansLight">
+                <On Platform="Android" Value="JosefinSans-Light.ttf#JosefinSans Light" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="JosefinSansRegular">
+                <On Platform="Android" Value="JosefinSans-Regular.ttf#JosefinSans Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="JosefinSansSemiBold">
+                <On Platform="Android" Value="JosefinSans-SemiBold.ttf#JosefinSans SemiBold" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="JosefinSansSemiBoldItalic">
+                <On Platform="Android" Value="JosefinSans-SemiBoldItalic.ttf#JosefinSans SemiBoldItalic" />
+            </OnPlatform>
+            <!--////-->
+
+            <Color x:Key="Primary">#42a5f5</Color>
+            <Color x:Key="PrimaryDark">#0077c2</Color>
+            <Color x:Key="PrimaryLight">#80d6ff</Color>
+
+            <Color x:Key="White">#FFFFFF</Color>
+            <Color x:Key="Gray">#616161</Color>
+            <Color x:Key="DarkGray">#363535</Color>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{x:DynamicResource DarkGray}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{x:DynamicResource White}" />
+                <Setter Property="BorderRadius" Value="20" />
+                <Setter Property="BackgroundColor" Value="{x:DynamicResource Primary}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+        </ResourceDictionary>
+
+
+
+    </Application.Resources>
 </prism:PrismApplication>

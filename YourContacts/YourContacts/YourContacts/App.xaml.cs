@@ -23,12 +23,15 @@ namespace YourContacts
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync($"{Constants.Navigation}/{Constants.SetUp}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+
+            containerRegistry.RegisterForNavigation<SetUpPage, SetUpPageViewModel>();
+
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
         }
     }
