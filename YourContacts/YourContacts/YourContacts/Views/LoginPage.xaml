@@ -6,7 +6,7 @@
              xmlns:controls="clr-namespace:YourContacts.Controls"
              mc:Ignorable="d" BackgroundImageSource="background_initial"
              NavigationPage.HasNavigationBar="False"
-             x:Class="YourContacts.Views.SetUpPage">
+             x:Class="YourContacts.Views.LoginPage">
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -18,23 +18,11 @@
             <Button BackgroundColor="Transparent" Grid.Column="0" />
             <Button BackgroundColor="Transparent" Grid.Column="2" />
 
-            <StackLayout HorizontalOptions="Fill" Grid.Column="1">
+            <StackLayout HorizontalOptions="Fill" Grid.Column="1" Margin="10,110,10,0">
 
-                <Frame VerticalOptions="Start" CornerRadius="15" Margin="40,100,40,0" Padding="0,20,0,10" 
-                           BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">
-                    
-                    <StackLayout>
-                        <Image Source="ic_setup" WidthRequest="80" />
-                        <Label Text="{Binding Title}" FontSize="28" Style="{StaticResource LabelStyle}"
-                               HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
-                        <Label Text="YourContacts Mobile-App" FontSize="25"
-                               HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"
-                               Style="{StaticResource LabelStyle}" Margin="0,5" FontFamily="{StaticResource JosefinSansSemiBold}"/>
-                    </StackLayout>    
-                    
-                </Frame>
+                <Image Source="YourContacts" WidthRequest="220" HorizontalOptions="Center" />
 
-                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,20,10,0"
+                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,30,10,0"
                        BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
                         <Image Source="ic_user" HeightRequest="35" Margin="7,0,0,0"/>
@@ -54,17 +42,7 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,10,10,0"
-                       BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
-                        <Image Source="ic_key" HeightRequest="30" Margin="7,0,5,0"/>
-                        <controls:CustomEntry Placeholder=" Confirm Password            " PlaceholderColor="{x:DynamicResource DarkGray}"
-                                              HorizontalTextAlignment="Start" Margin="0,5,0,0" Text="{Binding ConfirmPassword}" 
-                                              FontSize="19" FontFamily="{StaticResource PoppinsBoldFont}" IsPassword="True"/>
-                    </StackLayout>
-                </Frame>
-
-                <Button Margin="170,10,10,10" Command="{Binding SaveCommand}" Text="Save" BorderColor="{x:DynamicResource DarkGray}"
+                <Button Margin="20,10" Command="{Binding LoginCommand}" Text="Login" BorderColor="{x:DynamicResource DarkGray}"
                         HorizontalOptions="FillAndExpand" FontAttributes="Bold" BackgroundColor="{x:DynamicResource Gray}"
                         Style="{StaticResource ButtonStyle}" FontSize="24" />
 

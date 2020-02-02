@@ -15,6 +15,8 @@ namespace YourContacts
         public static string Navigation = "NavigationPage";
 
         //Pages
+        public static string Home = "MainPage";
         public static string SetUp = "SetUpPage";
+        public static string Login = "LoginPage";
     }
 }

@@ -23,7 +23,7 @@ namespace YourContacts
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync($"{Constants.Navigation}/{Constants.SetUp}");
+            await NavigationService.NavigateAsync($"{Constants.Navigation}/{Constants.Login}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -31,7 +31,7 @@ namespace YourContacts
             containerRegistry.RegisterForNavigation<NavigationPage>();
 
             containerRegistry.RegisterForNavigation<SetUpPage, SetUpPageViewModel>();
-
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
         }
     }
