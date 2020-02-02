@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:YourContacts.Controls"
-             mc:Ignorable="d" BackgroundImageSource="background_initial"
+             mc:Ignorable="d" BackgroundImageSource="background"
              NavigationPage.HasNavigationBar="False"
              x:Class="YourContacts.Views.LoginPage">
     <ContentPage.Content>
