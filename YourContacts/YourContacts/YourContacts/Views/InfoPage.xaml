@@ -4,10 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="YourContacts.Views.ContactPage">
+             x:Class="YourContacts.Views.InfoPage" >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Contact Page"
+            <Label Text="Welcome to Info Page!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

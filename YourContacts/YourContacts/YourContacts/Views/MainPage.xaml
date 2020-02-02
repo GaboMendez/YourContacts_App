@@ -3,11 +3,14 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:YourContacts.Views"
             x:Class="YourContacts.Views.MainPage" BarBackgroundColor="{x:DynamicResource PrimaryDark}"
+            NavigationPage.HasNavigationBar="False" 
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            android:TabbedPage.BarItemColor="White">
+            android:TabbedPage.BarItemColor="{x:DynamicResource White}"
+            android:TabbedPage.BarSelectedItemColor="LightGray">
 
 
-    <views:ContactPage Title="Contacts" IconImageSource="ic_contacts" BackgroundColor="White"/>
+    <views:ContactPage Title="Contacts" IconImageSource="ic_contacts" />
+    <views:InfoPage Title="Info" IconImageSource="ic_info" />
 
 </TabbedPage>

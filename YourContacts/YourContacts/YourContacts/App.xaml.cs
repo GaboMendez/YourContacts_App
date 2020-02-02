@@ -44,6 +44,7 @@ namespace YourContacts
             containerRegistry.RegisterForNavigation<SetUpPage, SetUpPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ContactPage, ContactPageViewModel>();
+            containerRegistry.RegisterForNavigation<InfoPage, InfoPageViewModel>();
         }
     }
 }

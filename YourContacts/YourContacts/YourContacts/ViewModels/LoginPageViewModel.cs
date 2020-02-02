@@ -12,6 +12,7 @@ namespace YourContacts.ViewModels
     public class LoginPageViewModel : ViewModelBase, IInitializeAsync
     {
         //Properties
+        protected NetworkAccess CurrentConnection;
         public string MyUserCredential { get; set; }
         public string MyPasswordCredential { get; set; }
 
@@ -27,23 +28,29 @@ namespace YourContacts.ViewModels
 
             LoginCommand = new DelegateCommand( async () =>
             {
-                if (String.IsNullOrEmpty(Username) || String.IsNullOrEmpty(Password))
+                CurrentConnection = Connectivity.NetworkAccess;
+                if (CurrentConnection.Equals(NetworkAccess.Internet))
                 {
-                    await DialogService.DisplayAlertAsync("Fields can not be empty! Try again!", null, "Ok");
-                }
-                else
-                {
-                    if (Username.Equals(MyUserCredential) && Password.Equals(MyPasswordCredential))
+                    if (String.IsNullOrEmpty(Username) || String.IsNullOrEmpty(Password))
                     {
-                        await DialogService.DisplayAlertAsync($"Welcome '{Username.ToUpper()}' to \nYourContacts App!", null, "Ok");
-
-                        await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.TabbedPage}?selectedTab={Constants.Contact}", UriKind.Absolute));
-
+                        await DialogService.DisplayAlertAsync("Fields can not be empty! Try again!", null, "Ok");
                     }
                     else
-                        await DialogService.DisplayAlertAsync("Invalid Login Credentials! Try again!", null, "Ok");
+                    {
+                        if (Username.Equals(MyUserCredential) && Password.Equals(MyPasswordCredential))
+                        {
+                            await DialogService.DisplayAlertAsync($"Welcome '{Username.ToUpper()}' to \nYourContacts App!", null, "Ok");
 
+                            await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.TabbedPage}?selectedTab={Constants.Contact}", UriKind.Absolute));
+
+                        }
+                        else
+                            await DialogService.DisplayAlertAsync("Invalid Login Credentials! Try again!", null, "Ok");
+
+                    }
                 }
+                else
+                    await DialogService.DisplayAlertAsync("Check your internet Connection and Try Again!", null, "Ok");
             });
 
         }
