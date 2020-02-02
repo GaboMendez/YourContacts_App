@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <color android:color="#FFFFFF"/>
+  </item>
+  <item android:width="250dp" android:height="230dp" android:gravity="center">
+    <bitmap
+        android:src="@drawable/YourContacts"
+        android:tileMode="disabled"
+        android:gravity="fill_horizontal|fill_vertical"/>
+  </item>
+</layer-list>
