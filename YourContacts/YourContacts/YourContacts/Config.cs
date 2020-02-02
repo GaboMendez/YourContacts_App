@@ -6,7 +6,7 @@ namespace YourContacts
 {
     public static class Config
     {
-        public const string ApiUrl = "API URL";
+        public const string ApiUrl = "https://randomuser.me/api";
     }
 
     public static class Constants

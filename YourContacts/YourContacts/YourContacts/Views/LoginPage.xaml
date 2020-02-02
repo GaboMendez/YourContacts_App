@@ -18,9 +18,9 @@
             <Button BackgroundColor="Transparent" Grid.Column="0" />
             <Button BackgroundColor="Transparent" Grid.Column="2" />
 
-            <StackLayout HorizontalOptions="Fill" Grid.Column="1" Margin="10,110,10,0">
+            <StackLayout HorizontalOptions="Fill" Grid.Column="1" Margin="10,80,10,0">
 
-                <Image Source="YourContacts" WidthRequest="220" HorizontalOptions="Center" />
+                <Image Source="YourContacts" WidthRequest="210" HorizontalOptions="Center" />
 
                 <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,30,10,0"
                        BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">

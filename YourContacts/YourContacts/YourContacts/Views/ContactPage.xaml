@@ -3,13 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:YourContacts.Controls"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="YourContacts.Views.ContactPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Contact Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" HeightRequest="100" BackgroundColor="#3871c1">
+                
+                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,0,0,0"
+                       BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
+                        <Image Source="ic_find" HeightRequest="35" Margin="7,0,0,0"/>
+                        <controls:CustomEntry Placeholder="Contact ID  " PlaceholderColor="{x:DynamicResource Gray}"
+                                              HorizontalTextAlignment="Start" Margin="0,5,0,0" Text="{Binding ContactID}" 
+                                              FontSize="17" FontFamily="{StaticResource PoppinsBoldFont}"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button Margin="10,0,0,0" Command="{Binding SearchCommand}" Text="Search" BorderColor="{x:DynamicResource DarkGray}"
+                        HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" 
+                        BackgroundColor="{x:DynamicResource Gray}" Style="{StaticResource ButtonStyle}" FontSize="18" />
+
+                <Button Margin="0,0,10,0" Command="{Binding CancelCommand}" Text="Cancel" BorderColor="{x:DynamicResource DarkGray}"
+                        HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"  
+                        BackgroundColor="{x:DynamicResource Red}" Style="{StaticResource ButtonStyle}" FontSize="18" />
+                
+            </StackLayout>
+
+            <yummy:PancakeView  Margin="10,20"
+                                CornerRadius="25,50,50,25" 
+                                BackgroundGradientEndColor="#0277bd" 
+                                BackgroundGradientStartColor="#58a5f0" 
+                                BackgroundGradientAngle="0" 
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="100"
+                                BorderColor="{x:DynamicResource DarkGray}"
+                                BorderThickness="2">        
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Contact Name" FontSize="28" Style="{StaticResource LabelStyle}" TextColor="White" Margin="0,10,0,0"
+                               HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
+                        <Label Text="Phone Number" FontSize="25"
+                               HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  TextColor="White"
+                               Style="{StaticResource LabelStyle}" Margin="0,0" FontFamily="{StaticResource JosefinSansSemiBold}"/>
+                    </StackLayout>
+
+                    <Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
+                           CornerRadius="50" Margin="10,15,10,15">
+                        <Image
+                            Margin="-10,-10"
+                            VerticalOptions="Fill" 
+                            HorizontalOptions="Fill"
+                            HeightRequest="200" 
+                            WidthRequest="200" 
+                            Source="ic_user.png"/>
+                    </Frame>
+                  
+                </Grid>
+            </yummy:PancakeView>
+            
+            
+
+            <!-- -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
