@@ -55,11 +55,9 @@ namespace YourContacts.Models
         [JsonProperty("last")]
         public string last { get; set; }
 
-        public string fullName { get; set; }
-
         public override string ToString()
         {
-            return $"{title}. {first} {last}";
+            return $"{this.title}. {this.first} {this.last}";
         }
     }
     public class Location

@@ -50,9 +50,9 @@
 
             </StackLayout>
 
-
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-                               Grid.Column="1" Margin="120,185,120,100"/>
+                               Grid.Column="1" Margin="100,185,100,100"/>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

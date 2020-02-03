@@ -20,7 +20,7 @@
 
             <StackLayout HorizontalOptions="Fill" Grid.Column="1">
 
-                <Frame VerticalOptions="Start" CornerRadius="15" Margin="40,70,40,0" Padding="0,5,0,5" 
+                <Frame VerticalOptions="Start" CornerRadius="15" Margin="25,70,25,0" Padding="0,5,0,5" 
                            BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">
                     
                     <StackLayout>
@@ -34,7 +34,7 @@
                     
                 </Frame>
 
-                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="15,20,15,0"
+                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,20,10,0"
                        BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
                         <Image Source="ic_user" HeightRequest="30" Margin="7,0,0,0"/>
@@ -44,7 +44,7 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="15,10,15,0"
+                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,10,10,0"
                        BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
                         <Image Source="ic_key" HeightRequest="30" Margin="7,0,5,0"/>
@@ -54,7 +54,7 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="15,10,15,0"
+                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,10,10,0"
                        BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
                         <Image Source="ic_key" HeightRequest="30" Margin="7,0,5,0"/>
@@ -64,9 +64,9 @@
                     </StackLayout>
                 </Frame>
 
-                <Button Margin="170,10,25,10" Command="{Binding SaveCommand}" Text="Save" BorderColor="{x:DynamicResource DarkGray}"
-                        HorizontalOptions="FillAndExpand" FontAttributes="Bold" BackgroundColor="{x:DynamicResource Gray}"
-                        Style="{StaticResource ButtonStyle}" FontSize="24" />
+                <Button Command="{Binding SaveCommand}" Text="Save" BorderColor="{x:DynamicResource DarkGray}"
+                        HorizontalOptions="End" FontAttributes="Bold" BackgroundColor="{x:DynamicResource Gray}"
+                        Style="{StaticResource ButtonStyle}" FontSize="24" Margin="25,5" />
 
             </StackLayout>
         </Grid>
