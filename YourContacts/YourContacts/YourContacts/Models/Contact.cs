@@ -54,9 +54,19 @@ namespace YourContacts.Models
 
         [JsonProperty("last")]
         public string last { get; set; }
+
+        public string fullName { get; set; }
+
+        public override string ToString()
+        {
+            return $"{title}. {first} {last}";
+        }
     }
     public class Location
     {
+        [JsonProperty("street")]
+        public Street street { get; set; }
+
         [JsonProperty("city")]
         public string city { get; set; }
 
@@ -68,6 +78,17 @@ namespace YourContacts.Models
 
         [JsonProperty("postcode")]
         public int postcode { get; set; }
+
+
+    }
+
+    public class Street
+    {
+        [JsonProperty("number")]
+        public int number { get; set; }
+
+        [JsonProperty("name")]
+        public string name { get; set; }
     }
 
     public class Dob

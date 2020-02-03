@@ -16,9 +16,20 @@ namespace YourContacts.ViewModels
     {
         // Properties
         protected NetworkAccess CurrentConnection;
+        protected IApiService ApiService { get; set; }
 
+        public Result SearchContact { get; set; }
+        // Search Contact Prop Detail
+        public string FullName { get; set; }
+        public string Address01 { get; set; }
+        public string Address02 { get; set; }
+        //
         public Contact CurrentContacts { get; set; }
+        public string ContactID { get; set; }
+        public bool Cancel { get; set; } = false;
+        public bool FoundContact { get; set; } = false;
 
+        //
         private Result _selectedContact;
         public Result SelectedContact
         {
@@ -32,7 +43,6 @@ namespace YourContacts.ViewModels
                 }
             }
         }
-        //public Result SelectedContact { get; set; }
         private ObservableCollection<Result> _observableContacts;
         public ObservableCollection<Result> ObservableContacts
         {
@@ -41,7 +51,7 @@ namespace YourContacts.ViewModels
             private set
             {
                 _observableContacts = value;
-                RaisePropertyChanged();
+                RaisePropertyChanged("ObservableContacts");
             }
         }
 
@@ -56,12 +66,85 @@ namespace YourContacts.ViewModels
             }
         }
         //Commands
+
         public DelegateCommand RefreshCommand { get; set; }
+        public DelegateCommand SearchCommand { get; set; }
+        public DelegateCommand CancelCommand { get; set; }
 
         public ContactPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
             : base(navigationService, pageDialogService)
         {
+            ApiService = new ApiService();
 
+            RefreshCommand = new DelegateCommand(async () =>
+            {
+                IsRefreshing = true;
+                CurrentConnection = Connectivity.NetworkAccess;
+                if (CurrentConnection.Equals(NetworkAccess.Internet))
+                {
+                    await Task.Delay(100);
+                   // Documents = await ApiService.PostConsultDocument(User.ID_DEVICE, User.ID_TOKEN, User.ID_USER, User.NO_CIA, User.LOCALIDAD, Type);
+                   // ObservableDocuments = ToObservable(Documents);
+                }
+
+                IsRefreshing = false;
+            });
+
+            SearchCommand = new DelegateCommand(async () =>
+            {
+                IsRefreshing = true;
+                CurrentConnection = Connectivity.NetworkAccess;
+                if (CurrentConnection.Equals(NetworkAccess.Internet))
+                {
+                    if (!String.IsNullOrEmpty(ContactID))
+                    {
+                        int id = Convert.ToInt32(ContactID);
+                        if (id > 0)
+                        {
+                            SearchContact = await ApiService.GetContactsById(id);
+                            if (SearchContact != null && !SearchContact.CatchError)
+                            {
+
+                                Cancel = true;
+                                FoundContact = true;
+                                FullName = $"{SearchContact.name.ToString()} - {SearchContact.dob.age}";
+                                Address01 = $"{SearchContact.location.city.ToUpper()}, {SearchContact.location.state.ToUpper()} \n{SearchContact.location.country.ToUpper()} - ZIP: {SearchContact.location.postcode} ";
+                                Address02= $"{SearchContact.location.street.name} - {SearchContact.location.street.number} ";
+
+                                Console.WriteLine();
+                                return;
+                            }
+                            else
+                                await DialogService.DisplayAlertAsync("Connection Interruped! Try Again!", null, "Ok");
+                            
+                            ContactID = null;
+                            Cancel = false;
+                            FoundContact = false;
+                        }
+                        else
+                            await DialogService.DisplayAlertAsync("Invalid Value! Try Again!", null, "Ok");
+                        Console.WriteLine();
+                    }
+                    else
+                        await DialogService.DisplayAlertAsync("Field can not be empty! Try again!", null, "OK");
+                }
+                IsRefreshing = false;
+            });
+
+            CancelCommand = new DelegateCommand( () =>
+            {
+                IsRefreshing = true;
+
+                if (!String.IsNullOrEmpty(ContactID))
+                {
+                    ContactID = null;
+                    Cancel = false;
+                    FoundContact = false;
+                }
+
+                IsRefreshing = false;
+
+            });
         }
         private ObservableCollection<Result> ToObservable(IEnumerable<Result> enumerable)
         {
@@ -79,7 +162,10 @@ namespace YourContacts.ViewModels
             if (parameters.ContainsKey("AllContacts"))
             {
                 CurrentContacts = (Contact)parameters["AllContacts"];
-                ObservableContacts = ToObservable(CurrentContacts.results);
+                if (CurrentContacts.results != null)
+                {
+                    ObservableContacts = ToObservable(CurrentContacts.results);
+                }
 
             }
         }

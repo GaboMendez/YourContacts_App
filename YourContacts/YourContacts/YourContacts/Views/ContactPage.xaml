@@ -8,97 +8,173 @@
              mc:Ignorable="d"
              x:Class="YourContacts.Views.ContactPage">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+            <StackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="100" BackgroundColor="{x:DynamicResource PrimaryDark}">
-                
-                <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,0,0,0"
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="100" BackgroundColor="{x:DynamicResource PrimaryDark}">
+
+                    <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,0,0,0"
                        BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke" VerticalOptions="Center">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
-                        <Image Source="ic_find" HeightRequest="35" Margin="7,0,0,0"/>
-                        <controls:CustomEntry Placeholder="Contact ID  " PlaceholderColor="{x:DynamicResource Gray}"
-                                              HorizontalTextAlignment="Start" Margin="0,5,0,0" Text="{Binding ContactID}" 
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
+                            <Image Source="ic_find" HeightRequest="35" Margin="7,0,0,0"/>
+                            <controls:CustomEntry Placeholder="Contact ID  " PlaceholderColor="{x:DynamicResource Gray}" Keyboard="Numeric"
+                                              HorizontalTextAlignment="Start" Margin="0,5,0,0" Text="{Binding ContactID}" MaxLength="5"
                                               FontSize="17" FontFamily="{StaticResource PoppinsBoldFont}"/>
-                    </StackLayout>
-                </Frame>
+                        </StackLayout>
+                    </Frame>
 
-                <Button Margin="10,0,0,0" Command="{Binding SearchCommand}" Text="Search" BorderColor="{x:DynamicResource DarkGray}"
+                    <Button Margin="10,0,10,0" Command="{Binding SearchCommand}" Text="Search" BorderColor="{x:DynamicResource DarkGray}"
                         HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" 
                         BackgroundColor="{x:DynamicResource Gray}" Style="{StaticResource ButtonStyle}" FontSize="18" />
 
-                <Button Margin="0,0,10,0" Command="{Binding CancelCommand}" Text="Cancel" BorderColor="{x:DynamicResource DarkGray}"
-                        HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"  
+                    <Button Margin="0,0,10,0" Command="{Binding CancelCommand}" Text="Cancel" BorderColor="{x:DynamicResource DarkGray}"
+                        HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"   IsVisible="{Binding Cancel}"
                         BackgroundColor="{x:DynamicResource Red}" Style="{StaticResource ButtonStyle}" FontSize="18" />
-                
-            </StackLayout>
 
-            <ListView x:Name="DocumentList" Margin="10,15,10,0"
-                      SelectedItem="{Binding SelectedContact. , Mode=TwoWay}"
-                      ItemsSource="{Binding Path=ObservableDocuments}"
-                      IsPullToRefreshEnabled="True"
-                      RefreshCommand="{Binding RefreshCommand}"
-                      IsRefreshing="{Binding IsRefreshing}"
-                      HasUnevenRows="True">              
+                </StackLayout>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
+                <yummy:PancakeView  Margin="15,10,15,0"
+                                CornerRadius="25,80,80,25" 
+                                BackgroundGradientEndColor="#0277bd" 
+                                BackgroundGradientStartColor="#58a5f0" 
+                                BackgroundGradientAngle="0" 
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="470"
+                                IsVisible="{Binding FoundContact}"
+                                BorderColor="{x:DynamicResource DarkGray}"
+                                BorderThickness="5">
+                    
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Margin="0,10,0,0">                        
+                        <Frame CornerRadius="40" 
+                                HeightRequest="180"
+                                WidthRequest="170" BorderColor="Black"
+                                HorizontalOptions="Center"
+                                Padding="0"
+                                Grid.Column="0"
+                                IsClippedToBounds="True">
+                            <Image  Source="{Binding SearchContact.picture.medium}"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Center" 
+                                    Margin="-5,-5"
+                                    HeightRequest="190" 
+                                    WidthRequest="190"/>
+                        </Frame>
+                        
+                        <StackLayout>
+                            <Label Text="{Binding FullName, Mode=TwoWay}" FontSize="27" Style="{StaticResource LabelStyle}" TextColor="Black" Margin="0,5,0,0"
+                               HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
                             
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                            <Label Text="{Binding SearchContact.email, Mode=TwoWay}" FontSize="22" Style="{StaticResource LabelStyle}" TextColor="White" 
+                                   Margin="10,-15,0,0" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
+                            
+                            <Label Text="{Binding Address01, Mode=TwoWay}" FontSize="24" FontAttributes="Bold"
+                               HorizontalTextAlignment="End"  VerticalTextAlignment="End"  TextColor="White"
+                               Style="{StaticResource LabelStyle}" Margin="10,-5,0,-5" FontFamily="{StaticResource JosefinSansRegular}"/>
+                            
+                            <Label Text="{Binding Address02, Mode=TwoWay}" FontSize="24"
+                               HorizontalTextAlignment="End"  VerticalTextAlignment="Start"  TextColor="White"
+                               Style="{StaticResource LabelStyle}" Margin="0,-5,10,5" FontFamily="{StaticResource JosefinSansRegular}"/>
+                            
+                            <Label Text="{Binding SearchContact.phone, StringFormat='Phone: {0:F0}'}" FontSize="21"
+                               HorizontalTextAlignment="End"  VerticalTextAlignment="Start"  TextColor="White"
+                               Style="{StaticResource LabelStyle}" Margin="0,-5,10,-5" FontFamily="{StaticResource PoppinsBoldFont}"/>
+                            
+                            <Label Text="{Binding SearchContact.cell, StringFormat='Cell: {0:F0}'}" FontSize="21"
+                               HorizontalTextAlignment="End"  VerticalTextAlignment="Start"  TextColor="White"
+                               Style="{StaticResource LabelStyle}" Margin="0,-5,10,10" FontFamily="{StaticResource PoppinsBoldFont}"/>
+                            
+                        </StackLayout>
 
-            <yummy:PancakeView  Margin="10,20"
+                    </StackLayout>
+                </yummy:PancakeView>
+
+                <!--<Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
+                           CornerRadius="50" Margin="10,15,10,15">
+                            <yummy:PancakeView  Margin="10,20"
                                 CornerRadius="25,50,50,25" 
                                 BackgroundGradientEndColor="#0277bd" 
                                 BackgroundGradientStartColor="#58a5f0" 
                                 BackgroundGradientAngle="0" 
                                 HorizontalOptions="FillAndExpand"
-                                HeightRequest="100"
+                                HeightRequest="120"
+                                IsVisible="{Binding FoundContact}"
                                 BorderColor="{x:DynamicResource DarkGray}"
-                                BorderThickness="2">        
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Grid.Column="1">
-                        <Label Text="Contact Name" FontSize="28" Style="{StaticResource LabelStyle}" TextColor="White" Margin="0,10,0,0"
+                                BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding SearchContact.name.first}" FontSize="28" Style="{StaticResource LabelStyle}" TextColor="White" Margin="0,10,0,0"
                                HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
-                        <Label Text="Phone Number" FontSize="25"
+                            <Label Text="Phone Number" FontSize="25"
                                HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  TextColor="White"
                                Style="{StaticResource LabelStyle}" Margin="0,0" FontFamily="{StaticResource JosefinSansSemiBold}"/>
-                    </StackLayout>
+                        </StackLayout>
 
-                    <StackLayout Padding="15">
-                        <Frame CornerRadius="30" 
-                           HeightRequest="200"
-                           WidthRequest="200" BorderColor="Black"
-                           HorizontalOptions="Center"
-                           Padding="0"
-                           Grid.Column="0"
-                           IsClippedToBounds="True">
-                            <Image Source="dados.png"
-                            VerticalOptions="Center" 
-                            HorizontalOptions="Center" 
-                            HeightRequest="200" 
-                            WidthRequest="200"/>
-                        </Frame>
-                    </StackLayout>
-                    
-                    
-                    <!--<Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
+                        <StackLayout Padding="15">
+                            <Frame CornerRadius="30" 
+                                   HeightRequest="200"
+                                   WidthRequest="200" BorderColor="Black"
+                                   HorizontalOptions="Center"
+                                   Padding="0"
+                                   Grid.Column="0"
+                                   IsClippedToBounds="True">
+                                <Image  Source="{Binding SearchContact.picture.medium}"
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        HeightRequest="200" 
+                                        WidthRequest="200"/>        
+                            </Frame>
+                        </StackLayout>
+
+
+                        <Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
                            CornerRadius="50" Margin="10,15,10,15">
                         
-                    </Frame>-->
-                  
-                </Grid>
-            </yummy:PancakeView>
-            
-            
+                            <Frame>
 
-            <!-- -->
-        </StackLayout>
+                            </StackLayout>
+                        </yummy:PancakeView>
+                    </Frame> -->
+
+                  
+
+                <StackLayout>
+                    <ListView x:Name="DocumentList" Margin="10,15,10,0"
+                      SelectedItem="{Binding SelectedContact,Mode=TwoWay}"
+                      ItemsSource="{Binding Path=ObservableDocuments}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      HasUnevenRows="True">
+
+                        <!--<ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="0,0,0,10">
+                                        <Frame.Content>
+                                            <Frame Padding="5,5"   OutlineColor="Gray" BackgroundColor="White">
+                                                <Frame.Content>
+                                                    <StackLayout>
+                                                        <BoxView BackgroundColor="Black" Margin="10,5" />
+                                                    </StackLayout>
+                                                </Frame.Content>
+                                            </Frame>
+                                        </Frame.Content>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>-->
+
+                    </ListView>
+                </StackLayout>
+
+                <!---->
+                <!-- -->
+            </StackLayout>
+        </ScrollView>
+      
     </ContentPage.Content>
 </ContentPage>

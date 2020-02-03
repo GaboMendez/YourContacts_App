@@ -62,14 +62,18 @@ namespace YourContacts.ViewModels
                     {
                         if (Username.Equals(MyUserCredential) && Password.Equals(MyPasswordCredential))
                         {
-                            await DialogService.DisplayAlertAsync($"Welcome '{Username.ToUpper()}' to \nYourContacts App!", null, "Ok");
                           
-                            Contacts = await ApiService.GetRandomContact();
+                            Contacts = await ApiService.GetRandomContacts();
+                            //Contacts = new Contact();
                             var ContactsParameters = new NavigationParameters();
                             ContactsParameters.Add("AllContacts", Contacts);
 
+                            await DialogService.DisplayAlertAsync($"Welcome '{Username.ToUpper()}' to \nYourContacts App!", null, "Ok");
+
                             await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.TabbedPage}?selectedTab={Constants.Contact}", 
                                                         UriKind.Absolute), ContactsParameters);
+
+
 
                         }
                         else

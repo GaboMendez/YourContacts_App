@@ -10,7 +10,7 @@ namespace YourContacts.Services
 {
     public class ApiService : IApiService
     {
-        public async Task<Contact> GetRandomContact()
+        public async Task<Contact> GetRandomContacts()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -28,19 +28,12 @@ namespace YourContacts.Services
                         continue;
                     }
                     ret.results.Add(value);
-                    if (ret.results.Count.Equals(18))
+                    if (ret.results.Count.Equals(10))
                     {
                         break;
                     }
                 }
                 return ret;
-                //response = 
-                //if (response != null)
-                //{
-                //    var jsonString = await response.Content.ReadAsStringAsync();
-                //    Contact getContact = JsonConvert.DeserializeObject<Contact>(jsonString);
-                //    return getContact;
-                //}
             }
         }
 
