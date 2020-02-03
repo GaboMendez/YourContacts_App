@@ -15,6 +15,8 @@
                 <ColumnDefinition Width="0.15*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
+
+            
             <Button BackgroundColor="Transparent" Grid.Column="0" />
             <Button BackgroundColor="Transparent" Grid.Column="2" />
 
@@ -47,6 +49,10 @@
                         Style="{StaticResource ButtonStyle}" FontSize="24" />
 
             </StackLayout>
+
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+                               Grid.Column="1" Margin="120,185,120,100"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

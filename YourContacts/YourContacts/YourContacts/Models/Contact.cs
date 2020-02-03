@@ -40,6 +40,8 @@ namespace YourContacts.Models
 
         [JsonProperty("nat")]
         public string nat { get; set; }
+
+        public bool CatchError { get; set; }
     }
 
     public class Name

@@ -8,6 +8,8 @@ namespace YourContacts.Services
 {
     public interface IApiService
     {
-        Task<Contact> GetContacts();
+        Task<Contact> GetRandomContact();
+
+        Task<Result> GetContactsById(int id);
     }
 }

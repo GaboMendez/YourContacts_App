@@ -9,8 +9,8 @@
              x:Class="YourContacts.Views.ContactPage">
     <ContentPage.Content>
         <StackLayout>
-            
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" HeightRequest="100" BackgroundColor="#3871c1">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="100" BackgroundColor="{x:DynamicResource PrimaryDark}">
                 
                 <Frame HorizontalOptions="FillAndExpand" CornerRadius="17" Padding="0,0" Margin="10,0,0,0"
                        BorderColor="{x:DynamicResource DarkGray}" BackgroundColor="WhiteSmoke" VerticalOptions="Center">
@@ -31,6 +31,23 @@
                         BackgroundColor="{x:DynamicResource Red}" Style="{StaticResource ButtonStyle}" FontSize="18" />
                 
             </StackLayout>
+
+            <ListView x:Name="DocumentList" Margin="10,15,10,0"
+                      SelectedItem="{Binding SelectedContact. , Mode=TwoWay}"
+                      ItemsSource="{Binding Path=ObservableDocuments}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      HasUnevenRows="True">              
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
             <yummy:PancakeView  Margin="10,20"
                                 CornerRadius="25,50,50,25" 
@@ -54,16 +71,27 @@
                                Style="{StaticResource LabelStyle}" Margin="0,0" FontFamily="{StaticResource JosefinSansSemiBold}"/>
                     </StackLayout>
 
-                    <Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
-                           CornerRadius="50" Margin="10,15,10,15">
-                        <Image
-                            Margin="-10,-10"
-                            VerticalOptions="Fill" 
-                            HorizontalOptions="Fill"
+                    <StackLayout Padding="15">
+                        <Frame CornerRadius="30" 
+                           HeightRequest="200"
+                           WidthRequest="200" BorderColor="Black"
+                           HorizontalOptions="Center"
+                           Padding="0"
+                           Grid.Column="0"
+                           IsClippedToBounds="True">
+                            <Image Source="dados.png"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" 
                             HeightRequest="200" 
-                            WidthRequest="200" 
-                            Source="ic_user.png"/>
-                    </Frame>
+                            WidthRequest="200"/>
+                        </Frame>
+                    </StackLayout>
+                    
+                    
+                    <!--<Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
+                           CornerRadius="50" Margin="10,15,10,15">
+                        
+                    </Frame>-->
                   
                 </Grid>
             </yummy:PancakeView>
