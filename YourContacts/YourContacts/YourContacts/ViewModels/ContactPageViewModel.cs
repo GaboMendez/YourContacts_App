@@ -71,6 +71,7 @@ namespace YourContacts.ViewModels
         public DelegateCommand RefreshCommand { get; set; }
         public DelegateCommand SearchCommand { get; set; }
         public DelegateCommand CancelCommand { get; set; }
+        public DelegateCommand DetailContact { get; set; }
 
         public ContactPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
             : base(navigationService, pageDialogService)
@@ -80,12 +81,11 @@ namespace YourContacts.ViewModels
             RefreshCommand = new DelegateCommand(async () =>
             {
                 IsRefreshing = true;
+
                 CurrentConnection = Connectivity.NetworkAccess;
                 if (CurrentConnection.Equals(NetworkAccess.Internet))
                 {
-                    await Task.Delay(100);
-                   // Documents = await ApiService.PostConsultDocument(User.ID_DEVICE, User.ID_TOKEN, User.ID_USER, User.NO_CIA, User.LOCALIDAD, Type);
-                   // ObservableDocuments = ToObservable(Documents);
+                    await UpdateContacts();
                 }
 
                 IsRefreshing = false;
@@ -94,6 +94,7 @@ namespace YourContacts.ViewModels
             SearchCommand = new DelegateCommand(async () =>
             {
                 IsRefreshing = true;
+
                 CurrentConnection = Connectivity.NetworkAccess;
                 if (CurrentConnection.Equals(NetworkAccess.Internet))
                 {
@@ -129,10 +130,11 @@ namespace YourContacts.ViewModels
                     else
                         await DialogService.DisplayAlertAsync("Field can not be empty! Try again!", null, "OK");
                 }
+
                 IsRefreshing = false;
             });
 
-            CancelCommand = new DelegateCommand( () =>
+            CancelCommand = new DelegateCommand( async () =>
             {
                 IsRefreshing = true;
 
@@ -141,11 +143,22 @@ namespace YourContacts.ViewModels
                     ContactID = null;
                     Cancel = false;
                     FoundContact = false;
+                    ShowContacts = false;
+                    await UpdateContacts();
                 }
 
                 IsRefreshing = false;
-
             });
+
+            DetailContact = new DelegateCommand( () =>
+            {
+                Console.WriteLine();
+            });
+        }
+        private async Task UpdateContacts()
+        {
+            CurrentContacts = await ApiService.GetRandomContacts();
+            ObservableContacts = ToObservable(CurrentContacts.results);
         }
         private ObservableCollection<Result> ToObservable(IEnumerable<Result> enumerable)
         {

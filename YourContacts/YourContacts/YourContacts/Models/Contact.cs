@@ -55,6 +55,13 @@ namespace YourContacts.Models
         [JsonProperty("last")]
         public string last { get; set; }
 
+        public string FullName 
+        {
+            get
+            {
+                return $"{this.title}. {this.first} {this.last}";
+            }
+        } 
         public override string ToString()
         {
             return $"{this.title}. {this.first} {this.last}";
