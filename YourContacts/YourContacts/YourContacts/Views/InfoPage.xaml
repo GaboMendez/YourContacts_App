@@ -51,10 +51,18 @@
                 </Grid.RowDefinitions>
 
                 <Frame BackgroundColor="White" CornerRadius="40" HorizontalOptions="End"
-                       BorderColor="{x:DynamicResource DarkGray}" Grid.Column="0" Margin="0,-30,5,-20" Padding="5,15">
+                       BorderColor="{x:DynamicResource DarkGray}" Grid.Row="0" Margin="0,-30,5,-20" Padding="5,15">
                     <Image Source="ic_settings" HeightRequest="100" WidthRequest="85" Margin="-5,-5"></Image>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SettingsCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame BackgroundColor="White" CornerRadius="40" HorizontalOptions="Start"
+                       BorderColor="{x:DynamicResource DarkGray}" Grid.Row="0" Margin="5,-30,0,-20" Padding="5,18">
+                    <Image Source="ic_exit" HeightRequest="100" WidthRequest="85" Margin="-5,-5"></Image>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogoutCommand}"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>
                 </Frame>
 

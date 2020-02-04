@@ -50,7 +50,7 @@
                                         AbsoluteLayout.LayoutBounds=".5, -0.2, .5, .5"
                                         Margin="0" HeightRequest="50"  />
 
-                    <yummy:PancakeView  Margin="15,105,15,0" VerticalOptions="Start" 
+                    <yummy:PancakeView  Margin="15,100,15,0" VerticalOptions="Start" 
                                         CornerRadius="25,80,80,25" 
                                         AbsoluteLayout.LayoutFlags="All" 
                                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
@@ -58,12 +58,12 @@
                                         BackgroundGradientStartColor="#58a5f0" 
                                         BackgroundGradientAngle="0" 
                                         HorizontalOptions="FillAndExpand"
-                                        HeightRequest="460"
+                                        HeightRequest="470"
                                         IsVisible="{Binding FoundContact}"
                                         BorderColor="{x:DynamicResource DarkGray}"
                                         BorderThickness="5">       
 
-                        <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Margin="0,10,0,0">
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Margin="0,5,0,0">
                             <Frame CornerRadius="40" 
                                 HeightRequest="180"
                                 WidthRequest="170" BorderColor="Black"
@@ -73,13 +73,13 @@
                                 <Image  Source="{Binding SearchContact.picture.large}"
                                     VerticalOptions="Center" 
                                     HorizontalOptions="Center" 
-                                    Margin="-5,-5"
+                                    Margin="-10,-10"
                                     HeightRequest="190" 
                                     WidthRequest="190"/>
                             </Frame>
 
                             <StackLayout Margin="0,-10,0,0">
-                                <Label Text="{Binding FullName, Mode=TwoWay}" FontSize="24" Style="{StaticResource LabelStyle}" TextColor="Black" Margin="0,5,0,0"
+                                <Label Text="{Binding FullName, Mode=TwoWay}" FontSize="22" Style="{StaticResource LabelStyle}" TextColor="Black" Margin="0,5,0,0"
                                HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
 
                                 <Label Text="{Binding SearchContact.email, Mode=TwoWay}" FontSize="18" Style="{StaticResource LabelStyle}" TextColor="White" 

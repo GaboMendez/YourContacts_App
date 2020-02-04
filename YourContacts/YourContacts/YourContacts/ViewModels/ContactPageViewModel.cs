@@ -127,6 +127,7 @@ namespace YourContacts.ViewModels
                             ContactID = null;
                             Cancel = false;
                             FoundContact = false;
+                            ShowContacts = true;
                         }
                         else
                             await DialogService.DisplayAlertAsync("Invalid Value! Try Again!", null, "Ok");
