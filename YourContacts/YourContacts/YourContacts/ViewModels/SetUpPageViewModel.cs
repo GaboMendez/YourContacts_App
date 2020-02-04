@@ -53,8 +53,12 @@ namespace YourContacts.ViewModels
 
             if (parameters.ContainsKey("BoolConfiguration"))
             {
-                Username = await SecureStorage.GetAsync("Username");
-                Title = "CONFIGURATION";
+                bool value = (bool)parameters["BoolConfiguration"];
+                if (value)
+                {
+                    Username = await SecureStorage.GetAsync("Username");
+                    Title = "CONFIGURATION";
+                }
             }
         }
     }
