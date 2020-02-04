@@ -22,9 +22,9 @@ namespace YourContacts.ViewModels
                 if (answer)
                 {
                     var SettingsParameters = new NavigationParameters();
-                    SettingsParameters.Add("Value", true);
+                    SettingsParameters.Add("BoolConfiguration", true);
 
-                    await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.SetUp}", UriKind.Relative), SettingsParameters);
+                    await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.SetUp}", UriKind.Absolute), SettingsParameters);
                 }
             });
         }

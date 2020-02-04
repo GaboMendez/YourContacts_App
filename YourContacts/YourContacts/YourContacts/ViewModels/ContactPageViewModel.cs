@@ -94,6 +94,10 @@ namespace YourContacts.ViewModels
 
             SearchCommand = new DelegateCommand(async () =>
             {
+                if (FoundContact)
+                {
+                    FoundContact = false;
+                }
                 IsRefreshing = true;
 
                 CurrentConnection = Connectivity.NetworkAccess;

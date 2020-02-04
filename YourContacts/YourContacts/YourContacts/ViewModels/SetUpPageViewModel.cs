@@ -16,9 +16,11 @@ namespace YourContacts.ViewModels
         public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public bool CancelBool { get; set; } = false;
 
         //Commands
         public DelegateCommand SaveCommand { get; set; }
+        public DelegateCommand CancelCommand { get; set; }
 
         public SetUpPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
             : base(navigationService, pageDialogService)
@@ -36,14 +38,24 @@ namespace YourContacts.ViewModels
                     {
                         await SecureStorage.SetAsync("Username", Username);
                         await SecureStorage.SetAsync("Password", Password);
+                        if (CancelBool)
+                        {
+                            await DialogService.DisplayAlertAsync("Your credentials has been updated successfully!", null, "Ok");
+                        }
+                        else
+                            await DialogService.DisplayAlertAsync("Your credentials has been created successfully!", null, "Ok");
 
-                        await DialogService.DisplayAlertAsync("Your credentials has been created successfully!", null, "Ok");
                         await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.Login}", UriKind.Absolute));
                     }
                     else
                         await DialogService.DisplayAlertAsync("Passwords do not match! Try again!", null, "Ok");
 
                 }
+            });
+
+            CancelCommand = new DelegateCommand(async () =>
+            {
+                await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.Login}", UriKind.Absolute));
             });
         }
 
@@ -58,6 +70,7 @@ namespace YourContacts.ViewModels
                 {
                     Username = await SecureStorage.GetAsync("Username");
                     Title = "CONFIGURATION";
+                    CancelBool = true;
                 }
             }
         }
