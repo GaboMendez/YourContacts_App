@@ -47,12 +47,7 @@
             <Color x:Key="DarkGray">#363535</Color>
 
             <Color x:Key="Red">#d50000</Color>
-            <Color x:Key="DarkRed">#c4001d</Color>
-
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{x:DynamicResource White}" />
-                <Setter Property="BarTextColor" Value="{x:DynamicResource PrimaryDark}" />
-            </Style>
+            <Color x:Key="DarkRed">#c4001d</Color>         
             
             <Style x:Key="LabelStyle" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />

@@ -158,7 +158,7 @@ namespace YourContacts.ViewModels
             var DetailParameters = new NavigationParameters();
             DetailParameters.Add("Contact", _selectedContact);
 
-            await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.TabbedPage}", UriKind.Relative), DetailParameters);
+            await NavigationService.NavigateAsync(new Uri($"/{Constants.DetailContact}", UriKind.Relative), DetailParameters);
         }
         private async Task UpdateContacts()
         {
