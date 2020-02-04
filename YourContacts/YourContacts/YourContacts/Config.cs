@@ -19,5 +19,6 @@ namespace YourContacts
         public static string SetUp = "SetUpPage";
         public static string Login = "LoginPage";
         public static string Contact = "ContactPage";
+        public static string DetailContact = "DetailContactPage";
     }
 }
