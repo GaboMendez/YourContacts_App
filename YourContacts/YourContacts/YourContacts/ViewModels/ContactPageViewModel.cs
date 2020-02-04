@@ -40,7 +40,9 @@ namespace YourContacts.ViewModels
                 if (_selectedContact != value)
                 {
                     _selectedContact = value;
+
                     // Detail Contact Nav with _selectedContact
+                    _ = DetailContact(_selectedContact);
                 }
             }
         }
@@ -71,7 +73,6 @@ namespace YourContacts.ViewModels
         public DelegateCommand RefreshCommand { get; set; }
         public DelegateCommand SearchCommand { get; set; }
         public DelegateCommand CancelCommand { get; set; }
-        public DelegateCommand DetailContact { get; set; }
 
         public ContactPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
             : base(navigationService, pageDialogService)
@@ -150,10 +151,14 @@ namespace YourContacts.ViewModels
                 IsRefreshing = false;
             });
 
-            DetailContact = new DelegateCommand( () =>
-            {
-                Console.WriteLine();
-            });
+        }
+
+        private async Task DetailContact(Result contact)
+        {
+            var DetailParameters = new NavigationParameters();
+            DetailParameters.Add("Contact", _selectedContact);
+
+            await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.TabbedPage}", UriKind.Relative), DetailParameters);
         }
         private async Task UpdateContacts()
         {

@@ -111,12 +111,8 @@
                                                         BackgroundGradientAngle="0"
                                                         HorizontalOptions="FillAndExpand" HeightRequest="130"                                                        
                                                         BorderColor="{x:DynamicResource DarkGray}" BorderThickness="4">
-                                    
+
                                         <Grid>
-                                            <Grid.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding DetailContact}"/>
-                                            </Grid.GestureRecognizers>
-                                            
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="2*" />
                                                 <ColumnDefinition Width="4*" />

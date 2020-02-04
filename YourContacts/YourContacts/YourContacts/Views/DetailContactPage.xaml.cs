@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace YourContacts.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetailContact : ContentPage
+    public partial class DetailContactPage : ContentPage
     {
-        public DetailContact()
+        public DetailContactPage()
         {
             InitializeComponent();
         }
