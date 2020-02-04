@@ -28,7 +28,7 @@ namespace YourContacts.Services
                         continue;
                     }
                     ret.results.Add(value);
-                    if (ret.results.Count.Equals(10))
+                    if (ret.results.Count.Equals(5))
                     {
                         break;
                     }

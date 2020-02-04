@@ -6,10 +6,45 @@
              mc:Ignorable="d"
              x:Class="YourContacts.Views.InfoPage" >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Info Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid  Grid.Row="0" BackgroundColor="{x:DynamicResource PrimaryDark}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="4.5*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                         TextColor="White" Margin="0,0,0,0"  Text="Developer" FontSize="24"
+                         HorizontalTextAlignment="Center"  VerticalTextAlignment="Start" Grid.Row="0" />
+                <Frame CornerRadius="40" BorderColor="Black"  Grid.Row="1"
+                       HeightRequest="250" WidthRequest="150" 
+                       HorizontalOptions="Center"
+                       Padding="0" Margin="0,10,0,-10"
+                       IsClippedToBounds="True">
+                    <Image  Source="ic_developer"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" 
+                            Margin="-5,-5"
+                            HeightRequest="250" 
+                            WidthRequest="250"/>
+                </Frame>
+                <StackLayout Grid.Row="2" VerticalOptions="Center">
+                    <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                             TextColor="White" Margin="0,5,0,-5"  Text="Gabriel Mendez Reyes - 21 " FontSize="22"
+                             HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  />
+                    <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                             TextColor="White" Margin="0,5,0,-5"  Text="Software Engineer Student at INTEC" FontSize="18"
+                             HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  />
+                </StackLayout>
+                
+            </Grid>
+            <Grid  Grid.Row="1" BackgroundColor="White">
+
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

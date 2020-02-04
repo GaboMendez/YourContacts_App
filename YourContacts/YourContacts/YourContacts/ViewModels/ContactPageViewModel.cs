@@ -114,7 +114,7 @@ namespace YourContacts.ViewModels
                                 Address01 = $"{SearchContact.location.city.ToUpper()}, {SearchContact.location.state.ToUpper()} \n{SearchContact.location.country.ToUpper()} - ZIP: {SearchContact.location.postcode} ";
                                 Address02= $"{SearchContact.location.street.name} - {SearchContact.location.street.number} ";
 
-                                Console.WriteLine();
+                                IsRefreshing = false;
                                 return;
                             }
                             else
@@ -138,14 +138,14 @@ namespace YourContacts.ViewModels
             CancelCommand = new DelegateCommand( async () =>
             {
                 IsRefreshing = true;
+                FoundContact = false;
 
                 if (!String.IsNullOrEmpty(ContactID))
                 {
+                    await UpdateContacts();
                     ContactID = null;
                     Cancel = false;
-                    FoundContact = false;
-                    ShowContacts = false;
-                    await UpdateContacts();
+                    ShowContacts = true;
                 }
 
                 IsRefreshing = false;
