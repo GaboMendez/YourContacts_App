@@ -19,7 +19,7 @@ namespace YourContacts.ViewModels
         protected IApiService ApiService { get; set; }
 
         public Result SearchContact { get; set; }
-        // Search Contact Prop Detail
+        // SearchContact Prop Detail
         public string FullName { get; set; }
         public string Address01 { get; set; }
         public string Address02 { get; set; }
@@ -28,6 +28,7 @@ namespace YourContacts.ViewModels
         public string ContactID { get; set; }
         public bool Cancel { get; set; } = false;
         public bool FoundContact { get; set; } = false;
+        public bool ShowContacts { get; set; } = true;
 
         //
         private Result _selectedContact;
@@ -104,7 +105,7 @@ namespace YourContacts.ViewModels
                             SearchContact = await ApiService.GetContactsById(id);
                             if (SearchContact != null && !SearchContact.CatchError)
                             {
-
+                                ShowContacts = false;
                                 Cancel = true;
                                 FoundContact = true;
                                 FullName = $" {SearchContact.dob.age} | {SearchContact.name.ToString()} ";

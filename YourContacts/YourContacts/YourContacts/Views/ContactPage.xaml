@@ -88,7 +88,67 @@
                     </StackLayout>
                 </yummy:PancakeView>
 
-                <!--<Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
+
+                <StackLayout IsVisible="{Binding ShowContacts}">
+                    <ListView x:Name="DocumentList" Margin="10,15,10,0"
+                      SelectedItem="{Binding SelectedContact,Mode=TwoWay}"
+                      ItemsSource="{Binding Path=ObservableContacts}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      HasUnevenRows="True">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+                                    <yummy:PancakeView  Margin="5,5" CornerRadius="25,50,50,25" 
+                                                        BackgroundGradientEndColor="#0277bd" 
+                                                        BackgroundGradientStartColor="#58a5f0" 
+                                                        BackgroundGradientAngle="0"
+                                                        HorizontalOptions="FillAndExpand" HeightRequest="120"
+                                                        
+                                                        BorderColor="{x:DynamicResource DarkGray}"
+                                                        BorderThickness="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="3*" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="1">
+                                                    <Label  Text="{Binding SearchContact.name.first}" FontSize="28" Style="{StaticResource LabelStyle}" TextColor="White" Margin="0,10,0,0"
+                                                            HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
+                                                    <Label  Text="Phone Number" FontSize="25"
+                                                            HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  TextColor="White"
+                                                            Style="{StaticResource LabelStyle}" Margin="0,0" FontFamily="{StaticResource JosefinSansSemiBold}"/>
+                                                </StackLayout>
+
+                                                <StackLayout Padding="15">
+                                                    <Frame CornerRadius="30" 
+                                                           HeightRequest="200"
+                                                           WidthRequest="200" BorderColor="Black"
+                                                           HorizontalOptions="Center"
+                                                           Padding="0"
+                                                           Grid.Column="0"
+                                                           IsClippedToBounds="True">
+                                                        <Image  Source="{Binding SearchContact.picture.medium}"
+                                                                VerticalOptions="Center" 
+                                                                HorizontalOptions="Center" 
+                                                                HeightRequest="200" 
+                                                                WidthRequest="200"/>
+                                                    </Frame>
+                                                </StackLayout>
+                                            </Grid>
+                                        </yummy:PancakeView>
+                                    <!--</Frame>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                </StackLayout>
+                <!--
+                <Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
                            CornerRadius="50" Margin="10,15,10,15">
                             <yummy:PancakeView  Margin="10,20"
                                 CornerRadius="25,50,50,25" 
@@ -133,43 +193,11 @@
                         <Frame Grid.Column="0" BorderColor="{x:DynamicResource DarkGray}"
                            CornerRadius="50" Margin="10,15,10,15">
                         
-                            <Frame>
+                            </Frame>
 
                             </StackLayout>
                         </yummy:PancakeView>
-                    </Frame> -->
-
-                  
-
-                <StackLayout>
-                    <ListView x:Name="DocumentList" Margin="10,15,10,0"
-                      SelectedItem="{Binding SelectedContact,Mode=TwoWay}"
-                      ItemsSource="{Binding Path=ObservableDocuments}"
-                      IsPullToRefreshEnabled="True"
-                      RefreshCommand="{Binding RefreshCommand}"
-                      IsRefreshing="{Binding IsRefreshing}"
-                      HasUnevenRows="True">
-
-                        <!--<ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Frame Padding="0,0,0,10">
-                                        <Frame.Content>
-                                            <Frame Padding="5,5"   OutlineColor="Gray" BackgroundColor="White">
-                                                <Frame.Content>
-                                                    <StackLayout>
-                                                        <BoxView BackgroundColor="Black" Margin="10,5" />
-                                                    </StackLayout>
-                                                </Frame.Content>
-                                            </Frame>
-                                        </Frame.Content>
-                                    </Frame>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>-->
-
-                    </ListView>
-                </StackLayout>
+                    </Frame> -->               
 
                 <!---->
                 <!-- -->
