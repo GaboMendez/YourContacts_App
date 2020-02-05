@@ -19,7 +19,15 @@ namespace YourContacts.Views
 
         private async void HiperLink_Tapped(object sender, EventArgs e)
         {
-            await Browser.OpenAsync(new Uri("https://randomuser.me/"), BrowserLaunchMode.SystemPreferred);
+            try
+            {
+                await Browser.OpenAsync(new Uri("https://randomuser.me/"), BrowserLaunchMode.SystemPreferred);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                await App.Current.MainPage.DisplayAlert("Device does not support browser navigation!", null, "Ok");
+            }
         }
     }
 }
