@@ -37,7 +37,7 @@ $ git clone https://github.com/GaboMendez/YourContacts_App.git
 - (**Search Bar**): It allows you to search with the Contact ID and it shows the detail of this Contact ID.
 - (**Cancel Bar**): It allows you to cancel the found Contact and it will update your Contact List with others 5 Contact.
 - (**Detail Contact**): It allows you to see the Details from the selected contact of the List in another Page.
-- (**Info**): This screens show the Developer Info and the App Info.
+- (**Info**): This screens shows the Developer Info and the App Info.
 - (**HiperLink**): It allows you to go to "https://randomuser.me/" through Info Page.
 - (**Log Out**): It allows you to Log Out through Info Page.
 - (**Configuration**): It allows you to update your credentials through Info Page.
