@@ -3,7 +3,7 @@ Xamarin Mobile App that is consuming Random User API. Link: "https://randomuser.
 
 ## Table of contents
 
-* [Screen Shots](#screenshots)
+* [Screenshots](#screenshots)
 * [Setup](#technologies)
 * [Functionality](#functionality)
 * [Technologies](#technologies)
