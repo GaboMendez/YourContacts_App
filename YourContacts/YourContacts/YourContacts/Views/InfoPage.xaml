@@ -21,9 +21,9 @@
                          TextColor="White" Margin="0,0,0,0"  Text="Developer" FontSize="24"
                          HorizontalTextAlignment="Center"  VerticalTextAlignment="Start" Grid.Row="0" />
                 <Frame CornerRadius="40" BorderColor="Black"  Grid.Row="1"
-                       HeightRequest="250" WidthRequest="150" 
+                       HeightRequest="250" WidthRequest="160" 
                        HorizontalOptions="Center"
-                       Padding="0" Margin="0,10,0,-10"
+                       Padding="-5,0" Margin="0,10,0,-10"
                        IsClippedToBounds="True">
                     <Image  Source="ic_developer"
                             VerticalOptions="Center" 

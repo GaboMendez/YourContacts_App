@@ -61,7 +61,7 @@
                                         HeightRequest="480"
                                         IsVisible="{Binding FoundContact}"
                                         BorderColor="{x:DynamicResource DarkGray}"
-                                        BorderThickness="5">       
+                                        BorderThickness="2">       
 
                         <Grid VerticalOptions="Center" HorizontalOptions="Fill" Margin="0,5,0,0">
                         <Grid.RowDefinitions>
@@ -109,7 +109,7 @@
                     </yummy:PancakeView>
 
                     <StackLayout IsVisible="{Binding ShowContacts}" 
-                                 AbsoluteLayout.LayoutFlags="All" Margin="0,60,0,0"
+                                 AbsoluteLayout.LayoutFlags="All" Margin="0,70,0,0"
                                  AbsoluteLayout.LayoutBounds="1,1,1,1">
                         <ListView x:Name="DocumentList" Margin="5,15,5,0"
                                   SelectedItem="{Binding SelectedContact,Mode=TwoWay}"
@@ -128,7 +128,7 @@
                                                         BackgroundGradientStartColor="#8d9396" 
                                                         BackgroundGradientAngle="0"
                                                         HorizontalOptions="FillAndExpand" HeightRequest="140"                                                        
-                                                        BorderColor="{x:DynamicResource DarkGray}" BorderThickness="4">
+                                                        BorderColor="{x:DynamicResource DarkGray}" BorderThickness="2">
 
                                         <Grid>
                                             <Grid.ColumnDefinitions>
