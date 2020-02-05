@@ -79,7 +79,11 @@
                              HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  />
                     <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
                              TextColor="{x:DynamicResource PrimaryDark}" Margin="0,5,0,-5"  Text="Link: https://randomuser.me/" FontSize="16"
-                             HorizontalTextAlignment="Center"  VerticalTextAlignment="Start" TextDecorations="Underline" />
+                             HorizontalTextAlignment="Center"  VerticalTextAlignment="Start" TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="HiperLink_Tapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
             </Grid>
 

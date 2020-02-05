@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Prism.Commands;
+using Xamarin.Forms;
 
 namespace YourContacts.ViewModels
 {
@@ -38,6 +39,7 @@ namespace YourContacts.ViewModels
                     await NavigationService.NavigateAsync(new Uri($"/{Constants.Navigation}/{Constants.Login}", UriKind.Absolute));
                 }
             });
+
         }
     }
 }
