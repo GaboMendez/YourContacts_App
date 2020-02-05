@@ -4,9 +4,9 @@ Xamarin Mobile App that is consuming Random User API. Link: "https://randomuser.
 ## Screenshots
 
 <p aling="center">
-<img src="/ScreenShots/Screen01" width="30%" /> <img src="/ScreenShots/Screen02" width="30%" /> 
-<img src="/ScreenShots/Screen03" width="30%" /> <img src="/ScreenShots/Screen04" width="30%" /> 
-<img src="/ScreenShots/Screen05" width="30%" /> <img src="/ScreenShots/Screen06" width="30%" /> 
+<img src="/ScreenShots/Screen01.jpg" width="30%" /> <img src="/ScreenShots/Screen02.jpg" width="30%" /> 
+<img src="/ScreenShots/Screen03.jpg" width="30%" /> <img src="/ScreenShots/Screen04.jpg" width="30%" /> 
+<img src="/ScreenShots/Screen05.jpg" width="30%" /> <img src="/ScreenShots/Screen06.jpg" width="30%" /> 
 </p>
 
 ## Functionality
