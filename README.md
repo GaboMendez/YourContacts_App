@@ -1,6 +1,14 @@
 # YourContacts
 Xamarin Mobile App that is consuming Random User API. Link: "https://randomuser.me/"
 
+## Table of contents
+
+* [Screen Shots](#screenshots)
+* [Setup](#technologies)
+* [Functionality](#functionality)
+* [Technologies](#technologies)
+* [Packages Used](#packages-used)
+
 ## Screenshots
 
 <p aling="center">
@@ -8,6 +16,7 @@ Xamarin Mobile App that is consuming Random User API. Link: "https://randomuser.
 <img src="/ScreenShots/Screen03.jpg" width="30%" /> <img src="/ScreenShots/Screen04.jpg" width="30%" /> 
 <img src="/ScreenShots/Screen05.jpg" width="30%" /> <img src="/ScreenShots/Screen06.jpg" width="30%" /> 
 </p>
+
 ## Setup
 
 1. Clone the project into a directory, with the following command.
@@ -34,14 +43,18 @@ $ git clone https://github.com/GaboMendez/YourContacts_App.git
 - (**Configuration**): It allows you to update your credentials through Info Page.
 
 ## Technologies
+
 * Visual Studio 2019
 * Xamarin Forms
 * Prism 
+* XAML
+* C#
 
-## Packages Used
-* Newtonsoft.Json             V: 12.0
-* PropertyChanged.Fody        V: 3.2
-* Prism.Unity.Forms           V: 7.2
-* Xamarin.Essentias           V: 1.3
-* Xamarin.Forms               V: 4.4
-* Xamarin.Forms.PancakeView   V: 1.3
+## Packages Used   
+
+* V: 3.2 | PropertyChanged.Fody        
+* V: 7.2 | Prism.Unity.Forms           
+* V: 1.3 | Xamarin.Essentias           
+* V: 4.4 | Xamarin.Forms              
+* V: 1.3 | Xamarin.Forms.PancakeView   
+* V: 12.0 | Newtonsoft.Json 
