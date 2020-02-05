@@ -10,6 +10,9 @@ namespace YourContacts.ViewModels
     public class DetailContactPageViewModel : ViewModelBase
     {
         //Properties
+        public string Info01 { get; set; }
+        public string Address01 { get; set; }
+        public string Address02 { get; set; }
         public Result MyContact { get; set; }
 
 
@@ -25,6 +28,10 @@ namespace YourContacts.ViewModels
             if (parameters.ContainsKey("Contact"))
             {
                 MyContact = (Result)parameters["Contact"];
+                Info01 = $"{MyContact.gender.ToUpper()} - {MyContact.dob.age}";
+                Address01 = $"Country:\n   {MyContact.location.country.ToUpper()} \nCity:\n   {MyContact.location.city.ToUpper()}\nState: {MyContact.location.state.ToUpper()} \n\nZIP: {MyContact.location.postcode}\n";
+                Address02 = $"Street: {MyContact.location.street.name.ToUpper()} - {MyContact.location.street.number}";
+
                 Console.WriteLine();
             }
         }

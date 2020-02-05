@@ -6,10 +6,93 @@
              mc:Ignorable="d"
              x:Class="YourContacts.Views.DetailContactPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Detail Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid  Grid.Row="0" BackgroundColor="{x:DynamicResource PrimaryDark}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                         TextColor="White" Margin="0,0,0,0"  Text="{Binding MyContact.name.FullName}" FontSize="24"
+                         HorizontalTextAlignment="Center"  VerticalTextAlignment="Start" Grid.Row="0" />
+                <Frame CornerRadius="40" BorderColor="Black"  Grid.Row="1"
+                       HeightRequest="350" WidthRequest="200" 
+                       HorizontalOptions="Center"
+                       Padding="-10" Margin="0,0,0,0"
+                       IsClippedToBounds="True">
+                    <Image  Source="{Binding MyContact.picture.large}"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" 
+                            Margin="-5,-5"
+                            HeightRequest="350" 
+                            WidthRequest="350"/>
+                </Frame>
+                <StackLayout Grid.Row="2" VerticalOptions="Start">
+                    <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                             TextColor="White" Margin="0,5,0,-10"  Text="{Binding MyContact.email}" FontSize="20"
+                             HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  />
+                    <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                             TextColor="White" Margin="0,0,0,0"  Text="{Binding Info01}" FontSize="22"
+                             HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  />
+                </StackLayout>
+
+            </Grid>
+
+            <Grid  Grid.Row="1" BackgroundColor="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>            
+
+                <StackLayout Grid.Column="0" VerticalOptions="Center" Margin="0,0,0,0">
+
+                    <Label  Text="Address" FontSize="22" Style="{StaticResource LabelStyle}" TextColor="{x:DynamicResource PrimaryDark}" TextDecorations="Underline" Margin="10,0,0,-15"
+                            HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
+                    
+                    <Label Text="{Binding Address01, Mode=TwoWay}" FontSize="20" FontAttributes="Bold"
+                               HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
+                               Style="{StaticResource LabelStyle}" Margin="10,0,0,-25" FontFamily="{StaticResource JosefinSansSemiBold}"/>
+
+                    <Label Text="{Binding Address02, Mode=TwoWay}" FontSize="20"
+                               HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
+                               Style="{StaticResource LabelStyle}" Margin="10,-5,10,5" FontFamily="{StaticResource JosefinSansSemiBold}"/>
+                  
+                </StackLayout>
+                <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="0,0,0,0">
+                   
+                    <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Nationality Code" FontSize="20"
+                             HorizontalTextAlignment="Start"  VerticalTextAlignment="Start" TextDecorations="Underline" />
+
+                    <Label Text="{Binding MyContact.nat}" FontSize="20" Margin="10,-5,10,10"
+                               HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
+                               Style="{StaticResource LabelStyle}"  FontFamily="{StaticResource PoppinsBoldFont}"/>
+
+                    <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Phone Number" FontSize="20"
+                             HorizontalTextAlignment="Start"  VerticalTextAlignment="Start" TextDecorations="Underline" />
+
+                    <Label Text="{Binding MyContact.phone}" FontSize="20"
+                               HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
+                               Style="{StaticResource LabelStyle}" Margin="10,-5,10,10" FontFamily="{StaticResource PoppinsBoldFont}"/>
+
+
+                    <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
+                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Cell Number" FontSize="20"
+                             HorizontalTextAlignment="Start"  VerticalTextAlignment="Start" TextDecorations="Underline" />
+
+                    <Label Text="{Binding MyContact.cell}" FontSize="20"
+                               HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
+                               Style="{StaticResource LabelStyle}" Margin="10,-5,10,10" FontFamily="{StaticResource PoppinsBoldFont}"/>
+                   
+                </StackLayout>
+            </Grid>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
