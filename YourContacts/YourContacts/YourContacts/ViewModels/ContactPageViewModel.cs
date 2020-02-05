@@ -115,7 +115,7 @@ namespace YourContacts.ViewModels
                                 Cancel = true;
                                 FoundContact = true;
                                 FullName = $" {SearchContact.dob.age} | {SearchContact.name.ToString()} ";
-                                Address01 = $"Country: {SearchContact.location.country.ToUpper()} \nCity:\n  {SearchContact.location.city.ToUpper()}\nState: {SearchContact.location.state.ToUpper()} \nZIP: {SearchContact.location.postcode}\n";
+                                Address01 = $"Country: {SearchContact.location.country.ToUpper()} \nCity: {SearchContact.location.city.ToUpper()}\nState: {SearchContact.location.state.ToUpper()} \nZIP: {SearchContact.location.postcode}\n";
                                 Address02= $"Street: {SearchContact.location.street.name} - {SearchContact.location.street.number} ";
 
                                 IsRefreshing = false;

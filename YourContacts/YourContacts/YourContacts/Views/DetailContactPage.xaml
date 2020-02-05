@@ -34,7 +34,7 @@
                 </Frame>
                 <StackLayout Grid.Row="2" VerticalOptions="Start">
                     <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
-                             TextColor="White" Margin="0,5,0,-10"  Text="{Binding MyContact.email}" FontSize="20"
+                             TextColor="White" Margin="0,5,0,-10"  Text="{Binding MyContact.email}" FontSize="18"
                              HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  />
                     <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
                              TextColor="White" Margin="0,0,0,0"  Text="{Binding Info01}" FontSize="22"
@@ -45,7 +45,7 @@
 
             <Grid  Grid.Row="1" BackgroundColor="White">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="6*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>            
 
@@ -66,27 +66,27 @@
                 <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="0,0,0,0">
                    
                     <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
-                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Nationality Code" FontSize="20"
+                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Nationality Code" FontSize="18"
                              HorizontalTextAlignment="Start"  VerticalTextAlignment="Start" TextDecorations="Underline" />
 
-                    <Label Text="{Binding MyContact.nat}" FontSize="20" Margin="10,-5,10,10"
+                    <Label Text="{Binding MyContact.nat}" FontSize="18" Margin="10,-5,10,10"
                                HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
                                Style="{StaticResource LabelStyle}"  FontFamily="{StaticResource PoppinsBoldFont}"/>
 
                     <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
-                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Phone Number" FontSize="20"
+                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Phone Number" FontSize="18"
                              HorizontalTextAlignment="Start"  VerticalTextAlignment="Start" TextDecorations="Underline" />
 
-                    <Label Text="{Binding MyContact.phone}" FontSize="20"
+                    <Label Text="{Binding MyContact.phone}" FontSize="17"
                                HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
                                Style="{StaticResource LabelStyle}" Margin="10,-5,10,10" FontFamily="{StaticResource PoppinsBoldFont}"/>
 
 
                     <Label   Style="{StaticResource LabelStyle}" FontFamily="{StaticResource PoppinsBoldFont}" 
-                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Cell Number" FontSize="20"
+                             TextColor="{x:DynamicResource PrimaryDark}" Margin="0,0,0,0"  Text="Cell Number" FontSize="18"
                              HorizontalTextAlignment="Start"  VerticalTextAlignment="Start" TextDecorations="Underline" />
 
-                    <Label Text="{Binding MyContact.cell}" FontSize="20"
+                    <Label Text="{Binding MyContact.cell}" FontSize="17"
                                HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="{x:DynamicResource DarkGray}"
                                Style="{StaticResource LabelStyle}" Margin="10,-5,10,10" FontFamily="{StaticResource PoppinsBoldFont}"/>
                    

@@ -85,19 +85,19 @@
                                HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
 
                                 <Label Text="{Binding SearchContact.email, Mode=TwoWay}" FontSize="18" Style="{StaticResource LabelStyle}" TextColor="White" 
-                                   Margin="10,-15,0,-20" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
+                                   Margin="10,-10,0,-20" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontFamily="{StaticResource PoppinsBoldFont}"/>
 
                                 <Label Text="{Binding Address01, Mode=TwoWay}" FontSize="22" FontAttributes="Bold"
                                HorizontalTextAlignment="Start"  VerticalTextAlignment="End"  TextColor="White"
-                               Style="{StaticResource LabelStyle}" Margin="10,15,0,-25" FontFamily="{StaticResource JosefinSansSemiBold}"/>
+                               Style="{StaticResource LabelStyle}" Margin="10,10,0,-20" FontFamily="{StaticResource JosefinSansSemiBold}"/>
 
                                 <Label Text="{Binding Address02, Mode=TwoWay}" FontSize="22" FontAttributes="Bold"
                                HorizontalTextAlignment="Start"  VerticalTextAlignment="Start"  TextColor="White"
-                               Style="{StaticResource LabelStyle}" Margin="10,0,10,-15" FontFamily="{StaticResource JosefinSansSemiBold}"/>
+                               Style="{StaticResource LabelStyle}" Margin="10,0,10,0" FontFamily="{StaticResource JosefinSansSemiBold}"/>
 
                                 <Label Text="{Binding SearchContact.phone, StringFormat='Phone: {0:F0}'}" FontSize="18"
                                HorizontalTextAlignment="End"  VerticalTextAlignment="Start"  TextColor="White"
-                               Style="{StaticResource LabelStyle}" Margin="0,15,10,-5" FontFamily="{StaticResource PoppinsBoldFont}"/>
+                               Style="{StaticResource LabelStyle}" Margin="0,10,10,0" FontFamily="{StaticResource PoppinsBoldFont}"/>
 
                                 <Label Text="{Binding SearchContact.cell, StringFormat='Cell: {0:F0}'}" FontSize="18"
                                HorizontalTextAlignment="End"  VerticalTextAlignment="Start"  TextColor="White"
